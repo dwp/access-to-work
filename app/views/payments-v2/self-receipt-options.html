@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Receipts
+{% endblock %}
+
+{% block content %}
+
+
+
+<main id="content" role="main">
+
+    <div class="phase-banner">
+      <p>
+        <strong class="phase-tag">BETA</strong>
+        <span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
+      </p>
+    </div>
+
+    <form class="form" method="post">
+
+    <h1 class="form-title heading-large">How do you want to attach your receipts?</h1>
+
+    <p>If you already have an image of your recipts as file you can attach them to your claim</p>
+    <p>If you are using a smartphone you can take a picture and upload the image</p>
+
+    <fieldset class="form-group">
+      
+      <label class="block-label" for="radio-inline-1">
+        <input id="radio-inline-1" type="radio" name="receipts" value="upload">
+        As a file
+      </label>
+      <label class="block-label" for="radio-inline-2">
+        <input id="radio-inline-2" type="radio" name="receipts" value="picture">
+        Take a picture
+      </label>
+
+    </fieldset>
+        
+    <div class="form-group">
+      <input type="submit" class="button" value="Continue">
+    </div>
+
+</main>
+
+{% endblock %}
