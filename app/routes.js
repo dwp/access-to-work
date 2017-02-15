@@ -123,30 +123,81 @@ router.post('/payments-v2/self-travel-type', function (req, res) {
         }
       });
 
+/// PAYMENTS VERSION-2 END ///
+
+
+/// PAYMENTS VERSION-3 ///
+
+// EMPLOYED ROUTES ///
+router.post('/payments-V3/employment-type', function (req, res) {
+        if (req.body.claimtype === 'employed') {
+          res.redirect('/payments-v3/user-details')
+        } else {
+          res.redirect('/payments-v3/self-user-details')
+        }
+      });
+
+router.post('/payments-v3/claim-type', function (req, res) {
+          if (req.body.claimtype === 'Travel') {
+            res.redirect('/payments-v3/travel-type')
+          } else if (req.body.claimtype ==='Support') {
+            res.redirect('/payments-v3/support-single')
+          } else {
+            res.redirect('/payments-v3/one-off-claim')
+          }
+        });
+
+router.post('/payments-v3/travel-type', function (req, res) {
+        if (req.body.claim === 'travel1') {
+          res.redirect('/payments-v3/single-travel')
+        } else {
+          res.redirect('/payments-v3/multi-travel')
+        }
+      });
+
+/// SELF EMPLOYED ROUTES ///
+router.post('/payments-v3/self-claim-type', function (req, res) {
+          if (req.body.claimtype === 'Travel') {
+            res.redirect('/payments-v3/self-travel-type')
+          } else if (req.body.claimtype ==='Support') {
+            res.redirect('/payments-v3/self-support-single')
+          } else {
+            res.redirect('/payments-v3/self-one-off-claim')
+          }
+        });
+
+router.post('/payments-v3/self-travel-type', function (req, res) {
+        if (req.body.claim === 'travel1') {
+          res.redirect('/payments-v3/self-single-travel')
+        } else {
+          res.redirect('/payments-v3/self-multi-travel')
+        }
+      });
+
 /// RECEIPTS UPLOAD ///
 
 /// EMPLOYED ///
 
-router.post('/payments-v2/receipt-options', function (req, res) {
+router.post('/payments-v3/receipt-options', function (req, res) {
         if (req.body.receipts === 'picture') {
-          res.redirect('/payments-v2/upload-receipts')
+          res.redirect('/payments-v3/upload-receipts')
         } else {
-          res.redirect('/payments-v2/upload-file')
+          res.redirect('/payments-v3/upload-file')
         }
       });
 
 /// SELF EMPLOYED ///
 
-router.post('/payments-v2/self-receipt-options', function (req, res) {
+router.post('/payments-v3/self-receipt-options', function (req, res) {
         if (req.body.receipts === 'picture') {
-          res.redirect('/payments-v2/self-upload-receipts')
+          res.redirect('/payments-v3/self-upload-receipts')
         } else {
-          res.redirect('/payments-v2/upload-file')
+          res.redirect('/payments-v3/upload-file')
         }
       });
 
 
-/// PAYMENTS VERSION-2 END ///
+/// PAYMENTS VERSION-3 END ///
 
 
 module.exports = router;
